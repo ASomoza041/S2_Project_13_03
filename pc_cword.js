@@ -48,6 +48,7 @@
 
 
 */
+//These are global variables that we set many different values to throught the code.
 var allLetters;
 
 var currentLetter;
@@ -60,8 +61,10 @@ var downClue;
 
 var typeDirection = "right";
 
+//When the window loads it will run the init function.
 window.onload = init;
 
+//This function sets up the puzzle including setting up the buttons that change the color of incorrect characters and changes it back after a short period of time. It also sets up the show solution button that will give the user the correct answers.
 function init() {
       allLetters = document.querySelectorAll("table#crossword span");
       currentLetter = allLetters[0];
@@ -79,6 +82,7 @@ function init() {
             };
       }
 
+      //When a key is pressed down on the document, it will run the selectLetter function.
       document.onkeydown = selectLetter;
 
       var typeImage = document.getElementById("directionImg");
@@ -105,6 +109,7 @@ function init() {
       }
 }
 
+//This function will set up the clue colors and colors for selected boxes.
 function formatPuzzle(puzzleLetter) {
       currentLetter = puzzleLetter;
       for (var i = 0; i < allLetters.length; i++) {
@@ -141,6 +146,7 @@ function formatPuzzle(puzzleLetter) {
       }
 }
 
+//This function decides what happens when a certain key is pressed such as letters being typed, or directions being changed.
 function selectLetter(e) {
       var leftLetter = document.getElementById(currentLetter.dataset.left);
       var upLetter = document.getElementById(currentLetter.dataset.up);
@@ -172,6 +178,7 @@ function selectLetter(e) {
       e.preventDefault();
 }
 
+//This function will change direction from horizontally or vertically when we change the button image by clicking it.
 function switchTypeDirection() {
       var typeImage = document.getElementById("directionImg");
 
